@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.subin.s4.util.Pager;
+
 @Repository
 public class NoticeDAO {
 	
@@ -13,8 +15,8 @@ public class NoticeDAO {
 	private SqlSession sql;
 	private final String NAMESPACE = "com.subin.s4.notice.NoticeDAO.";
 	
-	public List<NoticeDTO> getList() {
-		return sql.selectList(NAMESPACE + "getList");
+	public List<NoticeDTO> getList(Pager pager) {
+		return sql.selectList(NAMESPACE + "getList", pager);
 	}
 	
 	public int setInsert(NoticeDTO noticeDTO) {

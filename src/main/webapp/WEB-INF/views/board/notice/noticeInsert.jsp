@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert page</title>
+	<title>Notice Insert</title>
 	<c:import url="../../temp/boot_head.jsp"></c:import>
 </head>
 <body>
@@ -19,7 +19,7 @@
 						<td>제목</td><td><input type="text" name="title"></td>
 					</tr>
 					<tr>
-						<td>내용</td><td><input type="text" name="contents"></td>
+						<td>내용</td><td><textarea rows="30" cols="100" name="contents"></textarea></td>
 					</tr>
 					<tr>
 						<td>작성자</td><td><input type="text" name="writer"></td>

@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>Notice List</title>
 		<c:import url="../../temp/boot_head.jsp"></c:import>
 	</head>
 	<body>
@@ -16,7 +16,7 @@
 				<table class="table table-dark table-striped">
 					<thead>
 						<tr>
-							<th>번호</th><th>제목</th><th>내용</th><th>작성자</th><th>작성일</th><th>조회수</th>
+							<th>번호</th><th>제목</th><th>내용</th><th>작성자</th><th>작성일</th><th>조회수</th><th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -28,11 +28,15 @@
 								<td>${list.writer}</td>
 								<td>${list.regdate}</td>
 								<td>${list.hits}</td>
+								<td><a href="${pageContext.request.contextPath}/board/notice/noticeUpdate?num=${list.num}">업데이트</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 				<a href="./noticeInsert" class="btn btn-outline-primary">글 쓰기</a>
+				<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="n">
+					<a href="./noticeList?pn=${n}">${n}</a>
+				</c:forEach>
 			</div>
 		</div>
 	</body>

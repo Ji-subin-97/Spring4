@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.subin.s4.util.Pager;
+
 @Controller
 @RequestMapping("/board/notice/*")
 public class NoticeController {
@@ -17,8 +19,9 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@RequestMapping("noticeList")
-	public ModelAndView list(ModelAndView mv) {
-		List<NoticeDTO> ar = noticeService.getList();
+	public ModelAndView list(ModelAndView mv, Pager pager) {
+		List<NoticeDTO> ar = noticeService.getList(pager);
+		mv.addObject("pager", pager);
 		mv.addObject("list", ar);
 		mv.setViewName("board/notice/noticeList");
 		
@@ -41,4 +44,16 @@ public class NoticeController {
 		model.addAttribute("dtov", noticeDTO);
 	}
 	
+	@RequestMapping("noticeUpdate")
+	public void update(NoticeDTO noticeDTO, Model model) {
+		noticeDTO = noticeService.getSelect(noticeDTO);
+		model.addAttribute("dtov", noticeDTO);
+	}
+	
+	@RequestMapping(value = "noticeUpdate", method = {RequestMethod.POST})
+	public String update(NoticeDTO noticeDTO) {
+		int result = noticeService.setUpdate(noticeDTO);
+		
+		return "redirect:./noticeList";
+	}
 }
