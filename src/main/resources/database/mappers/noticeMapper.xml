@@ -15,4 +15,8 @@
   	<select id="getSelect" parameterType="com.subin.s4.notice.NoticeDTO" resultType="com.subin.s4.notice.NoticeDTO">
   		SELECT * FROM NOTICE WHERE NUM = #{num}
   	</select>
+  	
+  	<update id="setUpdate">
+  		UPDATE NOTICE SET title = #{title}, contents = #{contents}, writer= #{writer}, regdate = SYSDATE WHERE num = #{num}
+  	</update>
   </mapper>

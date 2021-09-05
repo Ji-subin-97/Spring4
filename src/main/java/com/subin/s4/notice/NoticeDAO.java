@@ -24,4 +24,8 @@ public class NoticeDAO {
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) {
 		return sql.selectOne(NAMESPACE + "getSelect", noticeDTO);
 	}
+	
+	public int setUpdate(NoticeDTO noticeDTO) {
+		return sql.update(NAMESPACE + "setUpdate", noticeDTO);
+	}
 }

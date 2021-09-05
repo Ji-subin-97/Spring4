@@ -22,4 +22,8 @@ public class NoticeService {
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) {
 		return noticeDAO.getSelect(noticeDTO);
 	}
+	
+	public int setUpdate(NoticeDTO noticeDTO) {
+		return noticeDAO.setUpdate(noticeDTO);
+	}
 }
