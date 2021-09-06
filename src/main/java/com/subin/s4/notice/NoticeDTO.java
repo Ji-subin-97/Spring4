@@ -4,17 +4,17 @@ import java.sql.Date;
 
 public class NoticeDTO {
 	
-	private int num;
+	private Long num;
 	private String title;
 	private String contents;
 	private String writer;
 	private Date regdate;
-	private int hits;
+	private Long hits;
 	
-	public int getNum() {
+	public Long getNum() {
 		return num;
 	}
-	public void setNum(int num) {
+	public void setNum(Long num) {
 		this.num = num;
 	}
 	public String getTitle() {
@@ -41,10 +41,10 @@ public class NoticeDTO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public int getHits() {
+	public Long getHits() {
 		return hits;
 	}
-	public void setHits(int hits) {
+	public void setHits(Long hits) {
 		this.hits = hits;
 	}
 	
